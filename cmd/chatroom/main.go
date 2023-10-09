@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/huanggengzhong/chatroom/server"
+	"log"
+	"net/http"
 )
 
 var (
@@ -14,7 +16,7 @@ var (
    |    |    | /----\   |
    |____|    |/      \  |
 
-Go 语言编程之旅 —— 一起用 Go 做项目：ChatRoom，start on：%s
+Go 语言编程之旅 —— ChatRoom项目，start on：%s
 `
 )
 
@@ -23,4 +25,5 @@ func main() {
 
 	server.RegisterHandle()
 
+	log.Fatal(http.ListenAndServe(addr, nil))
 }

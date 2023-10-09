@@ -32,7 +32,3 @@ require (
 	golang.org/x/time v0.0.0-20201208040808-7e3f01d25324 // indirect
 	gopkg.in/yaml.v2 v2.2.8 // indirect
 )
-replace (
-	github.com/huanggengzhong/chatroom/server => /Users/luogengzhong/go/src/github.com/huanggengzhong/chatroom/server
-
-)
