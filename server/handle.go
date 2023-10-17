@@ -13,7 +13,7 @@ var rootDir string
 
 func RegisterHandle() {
 	inferRootDir()
-	// 广播消息处理
+	//广播消息处理
 	go logic.Broadcaster.Start()
 
 	http.HandleFunc("/", homeHandleFunc)
@@ -30,7 +30,7 @@ func inferRootDir() {
 	var infer func(d string) string
 	infer = func(d string) string {
 		// 这里要确保项目根目录下存在 template 目录
-		if exists(d + "template") {
+		if exists(d + "/template") {
 			return d
 		}
 		//filepath.Dir 是 Go 语言标准库中的一个函数，它的作用是从一个文件路径中提取出该路径所在的目录部分。具体来说，它会返回一个字符串，表示给定路径的目录部分，不包括文件名。
@@ -38,7 +38,8 @@ func inferRootDir() {
 		return infer(filepath.Dir(d))
 	}
 	rootDir = infer(cwd)
-	fmt.Println(rootDir, "rootDir目录")
+	//fmt.Println(rootDir, "rootDir目录")
+
 }
 
 func exists(filename string) bool {
